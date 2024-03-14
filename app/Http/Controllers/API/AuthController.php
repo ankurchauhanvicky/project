@@ -150,11 +150,11 @@ class AuthController extends Controller
         ]);
     }
 
-    public function session()
-    {
-        return response()->json([
-            'message' => "welcome",
+    // public function session()
+    // {
+    //     return response()->json([
+    //         'message' => "welcome",
 
-        ]);
-    }
+    //     ]);
+    // }
 }
