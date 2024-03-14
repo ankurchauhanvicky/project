@@ -84,7 +84,7 @@ class AuthController extends Controller
             return response()->json(['status' => 400, 'data' => [], 'message' => "Please login"]);
         }
     }
-
+ 
     public function update(Request $request, $id)
     {
         $user = User::find($id);
