@@ -31,5 +31,3 @@ Route::put('/user-update/{id}', [AuthController::class, 'update']);
 Route::delete('/user-delete/{id}', [AuthController::class, 'delete']);
 //image uplord 
 Route::post('image-uplord', [AuthController::class, 'image']);
-//session 
-// Route::post('session-check', [AuthController::class, 'session']);
