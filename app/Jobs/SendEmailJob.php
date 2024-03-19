@@ -2,32 +2,33 @@
 
 namespace App\Jobs;
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestMail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Product;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\TestMail;
 
-class SendTest implements ShouldQueue
+class SendEmailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
-    protected $data;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($data)
+    protected $subject;
+    protected $body;
+    
+    public function __construct($subject, $body)
     {
-        $this->data= $data;
+        $this->subject = $subject;
+        $this->body = $body;
     }
+    
 
     /**
      * Execute the job.
@@ -35,8 +36,13 @@ class SendTest implements ShouldQueue
      * @return void
      */
     public function handle()
-    {
-        $email = new TestMail();
-        Mail::to($this->data['email'])->send($email);
-    }
+{
+    $subject = $this->subject;
+    $body = $this->body;
+ 
+    Mail::to('ankurc@whizkraft.net')->send(new TestMail($subject, $body));
+
+}
+
+    
 }

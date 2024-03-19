@@ -89,14 +89,5 @@ Route::get('/users', [App\Http\Controllers\HomeController::class, 'asspost']);
 Route::get('/users/{id}', [App\Http\Controllers\HomeController::class, 'store']);
 
 
-//queues 
-
-Route::get('send-email', function(){
-    $data['email']= 'ankurc@whizkraft.net';
-    dispatch(new App\jobs\SendTest($data));
-    dd('email send successfull');
-
-});
-
 
 

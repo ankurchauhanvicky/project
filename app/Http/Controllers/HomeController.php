@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TestMail;
+use App\Jobs\SendEmailJob;
 use Illuminate\Http\Response;
 use App\Http\Requests\ContactFormRequest;
 use App\Http\Session;
@@ -87,14 +88,26 @@ class HomeController extends Controller
         return redirect('tableview')->with('status_msg', 'User record delete Successfully');
     }
 
+    // public function email()
+    // {
+    //     $subject = 'Test Subject';
+    //     $body = 'Test Message';
+
+    //     Mail::to('ankurc@whizkraft.net')->send(new TestMail($subject, $body));
+    //     return ("Email is sent successfully.");
+    // }
     public function email()
     {
         $subject = 'Test Subject';
         $body = 'Test Message';
 
-        Mail::to('ankurc@whizkraft.net')->send(new TestMail($subject, $body));
-        return ("Email is sent successfully.");
+       // Mail::to('ankurc@whizkraft.net')->send(new TestMail($subject, $body));
+        dispatch(new SendEmailJob($subject, $body));
+        //echo"<pre>"; print_r($mail);die();
+
+        return "Email is sent successfully.";
     }
+
 
     public function front()
     {
@@ -177,5 +190,4 @@ class HomeController extends Controller
 
         return view('dashboard', ['totalAllUsers' => $totalAllUsers]);
     }
-    
 }
