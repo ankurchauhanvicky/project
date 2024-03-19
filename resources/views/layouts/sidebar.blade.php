@@ -346,6 +346,13 @@
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
+          <!-- <a href="#" class="nav-link">
+            <i class="nav-icon far fa-plus-square"></i>
+            <p>
+              Logout
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a> -->
           <!-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link">
@@ -475,6 +482,14 @@
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
+
+          <!-- <a href="user-login" class="nav-link">
+            <i class="nav-icon fa fa-sign-out"></i>
+            <p>
+              Logout
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a> -->
           <ul class="nav nav-treeview">
             <!-- <li class="nav-item">
                 <a href="pages/search/simple.html" class="nav-link">
@@ -490,11 +505,42 @@
               </li> -->
           </ul>
         </li>
+        <li class="nav-item">
+          <a href="user-login" class="nav-link">
+            <i class="nav-icon fas fa-out"></i>
+            <p>
+              Logout
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+
+          <!-- <a href="user-login" class="nav-link">
+            <i class="nav-icon fa fa-sign-out"></i>
+            <p>
+              Logout
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview"> -->
+            <!-- <li class="nav-item">
+                <a href="pages/search/simple.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Simple Search</p>
+                </a>
+              </li> -->
+            <!-- <li class="nav-item">
+                <a href="pages/search/enhanced.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Enhanced</p>
+                </a>
+              </li> -->
+          <!-- </ul> -->
+        </li>
         <!-- <li class="nav-header">MISCELLANEOUS</li>
           <li class="nav-item">
             <a href="iframe.html" class="nav-link">
               <i class="nav-icon fas fa-ellipsis-h"></i>
-              <p>Tabbed IFrame Plugin</p>
+              <p>Logout</p>
             </a>
           </li>
           <li class="nav-item">

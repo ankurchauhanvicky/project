@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controller\HomeController;
 use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,11 +83,20 @@ Route::post('contact', [App\Http\Controllers\HomeController::class, 'store']);
 // dashboard
 Route::get('dashboardshow', [App\Http\Controllers\HomeController::class, 'dashboard']);
 
-//logout
-Route::get('logoutuser', [App\Http\Controllers\HomeController::class, 'logout']);
-
-
 //api
 Route::get('/users', [App\Http\Controllers\HomeController::class, 'asspost']);
 
 Route::get('/users/{id}', [App\Http\Controllers\HomeController::class, 'store']);
+
+
+//queues 
+
+Route::get('send-email', function(){
+    $data['email']= 'ankurc@whizkraft.net';
+    dispatch(new App\jobs\SendTest($data));
+    dd('email send successfull');
+
+});
+
+
+

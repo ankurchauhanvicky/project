@@ -149,6 +149,5 @@ class AuthController extends Controller
             'message' => 'image uplord successfull',
         ]);
     }
-
     
 }

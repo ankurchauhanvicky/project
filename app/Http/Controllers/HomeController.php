@@ -177,19 +177,5 @@ class HomeController extends Controller
 
         return view('dashboard', ['totalAllUsers' => $totalAllUsers]);
     }
-
-    public function logout()
-    {
-        return view();
-    }
-
-    // public function asspost()
-    // {
-    //     $users = User::all();
-    //     return response()->json([
-    //         'name' => count($users),
-    //         'email' => $users,
-    //     ]);
-    // }
-
+    
 }

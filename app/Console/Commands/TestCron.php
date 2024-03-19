@@ -27,7 +27,7 @@ class TestCron extends Command
      * @return int
      */
     public function handle()
-    {
+    { 
       $data= array('data'=> 'Cron Testing');
         Mail::send('mail', $data, function($message){
             $message->to('ankurc@whizkraft.net')->subject('email testing cron');
