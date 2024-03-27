@@ -5,6 +5,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Controller\HomeController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\MobileController;
+use App\Http\Controllers\Indexcontroller;
+use App\Http\Controllers\SongController;
+use App\Http\Controllers\SingerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +22,8 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -27,11 +34,9 @@ Route::fallback(function(){
 
 });
 
+//Auth::routes();
 
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/homes', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //table view
 Route::get('tableview', [App\Http\Controllers\HomeController::class, 'table']);
@@ -88,6 +93,21 @@ Route::get('/users', [App\Http\Controllers\HomeController::class, 'asspost']);
 
 Route::get('/users/{id}', [App\Http\Controllers\HomeController::class, 'store']);
 
+//relationship
+Route::get('add-customer',[App\Http\Controllers\CustomerController::class, 'add_customer']);
 
+Route::get('view-mobile/{id}',[App\Http\Controllers\CustomerController::class, 'show_mobile']);
 
+Route::get('view-customer/{id}',[App\Http\Controllers\MobileController::class, 'show_customer']);
 
+Route:: get('addindex/{id}',[App\Http\Controllers\IndexController::class, 'index']);
+
+//many to many
+//song
+Route::get('song',[App\Http\Controllers\SongController::class, 'add_song']);
+//singer
+Route::get('singer',[App\Http\Controllers\SingerController::class, 'add_singer']);
+//show song
+Route::get('show-song/{id}',[App\Http\Controllers\SongController::class, 'show_song']);
+
+Route::get('show-singer/{id}',[App\Http\Controllers\SingerController::class, 'show_singer']);
